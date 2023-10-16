@@ -1,0 +1,12 @@
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\bin\Debug\net7.0\SalesPlatform-Domain.deps.json
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\bin\Debug\net7.0\SalesPlatform-Domain.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\bin\Debug\net7.0\SalesPlatform-Domain.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.csproj.AssemblyReference.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.AssemblyInfoInputs.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.AssemblyInfo.cs
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.csproj.CoreCompileInputs.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\refint\SalesPlatform-Domain.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\SalesPlatform-Domain.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Domain\obj\Debug\net7.0\ref\SalesPlatform-Domain.dll

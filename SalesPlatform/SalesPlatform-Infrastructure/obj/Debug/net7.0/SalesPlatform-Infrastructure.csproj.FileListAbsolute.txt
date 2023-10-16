@@ -1,0 +1,15 @@
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\bin\Debug\net7.0\SalesPlatform-Infrastructure.deps.json
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\bin\Debug\net7.0\SalesPlatform-Infrastructure.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\bin\Debug\net7.0\SalesPlatform-Infrastructure.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\bin\Debug\net7.0\SalesPlatform-Domain.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\bin\Debug\net7.0\SalesPlatform-Domain.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.csproj.AssemblyReference.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.AssemblyInfoInputs.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.AssemblyInfo.cs
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.csproj.CoreCompileInputs.cache
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.csproj.CopyComplete
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\refint\SalesPlatform-Infrastructure.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\SalesPlatform-Infrastructure.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Infrastructure\obj\Debug\net7.0\ref\SalesPlatform-Infrastructure.dll

@@ -10,3 +10,6 @@ D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\Sa
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\refint\SalesPlatform-Application.dll
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\SalesPlatform-Application.pdb
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\ref\SalesPlatform-Application.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Domain.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Domain.pdb
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\SalesPlatform-Application.csproj.CopyComplete
