@@ -13,3 +13,5 @@ D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\re
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Domain.dll
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Domain.pdb
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\obj\Debug\net7.0\SalesPlatform-Application.csproj.CopyComplete
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Infrastructure.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Application\bin\Debug\net7.0\SalesPlatform-Infrastructure.pdb

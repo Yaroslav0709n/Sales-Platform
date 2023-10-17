@@ -34,6 +34,9 @@
             "projectReferences": {
               "D:\\vs2\\SalesPlatform\\SalesPlatform\\SalesPlatform-Domain\\SalesPlatform-Domain.csproj": {
                 "projectPath": "D:\\vs2\\SalesPlatform\\SalesPlatform\\SalesPlatform-Domain\\SalesPlatform-Domain.csproj"
+              },
+              "D:\\vs2\\SalesPlatform\\SalesPlatform\\SalesPlatform-Infrastructure\\SalesPlatform-Infrastructure.csproj": {
+                "projectPath": "D:\\vs2\\SalesPlatform\\SalesPlatform\\SalesPlatform-Infrastructure\\SalesPlatform-Infrastructure.csproj"
               }
             }
           }
@@ -48,6 +51,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -258,6 +265,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[7.0.0, )"

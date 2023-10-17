@@ -8,18 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Mappings\" />
     <Folder Include="Validation\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SalesPlatform-Domain\SalesPlatform-Domain.csproj" />
+    <ProjectReference Include="..\SalesPlatform-Infrastructure\SalesPlatform-Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

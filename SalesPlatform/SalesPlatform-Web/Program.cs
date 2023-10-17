@@ -1,6 +1,7 @@
 using SalesPlatform_Web.Extensions;
 using SalesPlatform_Application.DependencyInjection;
 using SalesPlatform_Infrastructure.DependencyInjection;
+using SalesPlatform_Application.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddApplication().AddInfrastructure();
 
 builder.Services.AddDbContextService(builder.Configuration);
 builder.Services.AddApplicationService();
+builder.Services.AddAutoMapper(typeof(UserMapper).Assembly);
 builder.Services.AddCorsService();
 builder.Services.AddSwaggerGenService();
 builder.Services.AddIdentityService();
