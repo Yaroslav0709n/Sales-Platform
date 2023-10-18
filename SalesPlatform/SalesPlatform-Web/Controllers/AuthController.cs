@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using SalesPlatform_Application.Dtos.Auth;
 using SalesPlatform_Application.IServices;
+using SalesPlatform_Application.Services;
 using SalesPlatform_Domain.Entities.Identity;
+using System.Configuration;
+using System.Net;
+using System.Net.Mail;
 
 namespace SalesPlatform_Web.Controllers
 {
@@ -21,7 +25,7 @@ namespace SalesPlatform_Web.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register([FromBody] RegisterDto registerDto)
+        public async Task<ActionResult> Register([FromBody] RegisterDto registerDto, IConfiguration configuration)
         {
             var userEmailExist = await _userManager.FindByEmailAsync(registerDto.Email);
             if (userEmailExist != null)
