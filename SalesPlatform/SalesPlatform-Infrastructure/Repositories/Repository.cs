@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalesPlatform_Infrastructure.Context;
 using SalesPlatform_Infrastructure.Exceptions;
+using System.Linq.Expressions;
 
 namespace SalesPlatform_Infrastructure.Repositories
 {
@@ -22,10 +23,14 @@ namespace SalesPlatform_Infrastructure.Repositories
             return (await _entities.AddAsync(entity)).Entity;
         }
 
-        public async Task AddRangeAsync(IEnumerable<TEntity> entities) => await _entities.AddRangeAsync(entities);
+        public IQueryable<TEntity> Query(params Expression<Func<TEntity, object>>[] includes)
+        {
+            var dbSet = _сontext.Set<TEntity>();
+            var query = includes
+                .Aggregate<Expression<Func<TEntity, object>>, IQueryable<TEntity>>(dbSet, (current, include) => current.Include(include));
 
-        public async Task DeleteRangeAsync(IEnumerable<TEntity> entities) =>
-            await Task.Run(() => entities.ToList().ForEach(item => _сontext.Entry(item).State = EntityState.Deleted));
+            return query ?? dbSet;
+        }
 
         public async Task<TEntity> UpdateAsync(TEntity entity) =>
             await Task.Run(() => _entities.Update(entity).Entity);
@@ -49,6 +54,8 @@ namespace SalesPlatform_Infrastructure.Repositories
 
         public async ValueTask<TEntity> GetByIdAsync(params object[] keys) =>
             await _entities.FindAsync(keys) ?? throw new NotFoundException(_entities.EntityType.ToString(), keys.ToString());
+
+        public async Task<IEnumerable<TEntity>> GetAllAsync() => await _entities.ToListAsync();
 
         public void Delete(TEntity entity) => _сontext.Entry(entity).State = EntityState.Deleted;
 

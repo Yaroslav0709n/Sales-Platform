@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SalesPlatform_Application.Dtos.Item;
 
 namespace SalesPlatform_Application.IServices
 {
-    internal interface IItemService
+    public interface IItemService
     {
+        Task<IEnumerable<ItemDto>> GetAllItemsAsync();
+        Task<ItemDto> GetItemByIdAsync(int itemId);
+        Task<ItemDto> GetItemByUserIdAsync(string userId);
+        Task<ItemDto> CreateItemAsync(ItemDto itemDto, int categoryId);
     }
 }

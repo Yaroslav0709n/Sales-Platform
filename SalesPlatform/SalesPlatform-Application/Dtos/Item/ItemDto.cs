@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SalesPlatform_Application.Dtos.Item
+﻿namespace SalesPlatform_Application.Dtos.Item
 {
-    internal class ItemDto
+    public class ItemDto
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public DateTime Time { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 }
