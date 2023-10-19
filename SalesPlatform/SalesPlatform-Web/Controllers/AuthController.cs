@@ -25,7 +25,7 @@ namespace SalesPlatform_Web.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register([FromBody] RegisterDto registerDto, IConfiguration configuration)
+        public async Task<ActionResult> Register([FromBody] RegisterDto registerDto)
         {
             var userEmailExist = await _userManager.FindByEmailAsync(registerDto.Email);
             if (userEmailExist != null)
