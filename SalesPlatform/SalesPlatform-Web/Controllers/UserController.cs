@@ -19,7 +19,7 @@ namespace SalesPlatform_Web.Controllers
         [HttpGet("userId"), Authorize]
         public async Task<ActionResult> GetUserById(string userId)
         {
-            var user = await _userService.GetUser(userId);
+            var user = await _userService.GetUserAsync(userId);
             
             return Ok(user);
         }
@@ -35,7 +35,7 @@ namespace SalesPlatform_Web.Controllers
         [HttpPut, Authorize]
         public async Task<ActionResult> UpdateUser([FromBody] UpdateUserDto updateUserDto)
         {
-            var user = await _userService.UpdateUser(updateUserDto);
+            var user = await _userService.UpdateUserAsync(updateUserDto);
 
             return Ok(user);
         }
