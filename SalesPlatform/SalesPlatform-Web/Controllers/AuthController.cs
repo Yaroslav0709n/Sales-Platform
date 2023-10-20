@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SalesPlatform_Application.Dtos;
 using SalesPlatform_Application.Dtos.Auth;
 using SalesPlatform_Application.IServices;
-using SalesPlatform_Application.Services;
 using SalesPlatform_Domain.Entities.Identity;
-using System.Configuration;
-using System.Net;
-using System.Net.Mail;
 
 namespace SalesPlatform_Web.Controllers
 {
@@ -16,12 +14,16 @@ namespace SalesPlatform_Web.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITokenService _tokenService;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AuthController(UserManager<ApplicationUser> userManager,
-                              ITokenService tokenService)
+                              ITokenService tokenService,
+                              SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _tokenService = tokenService;
+            _signInManager = signInManager;
+
         }
 
         [HttpPost("register")]
@@ -73,6 +75,33 @@ namespace SalesPlatform_Web.Controllers
                 Email = user.Email,
                 Token = _tokenService.CreateToken(user)
             };
+        }
+
+        [HttpPost("logout"), Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok("Logged out successfully");
+        }
+
+        [HttpPost("change-password"), Authorize]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto changePasswordDto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return BadRequest("User not found");
+            }
+
+            var changePasswordResult = await _userManager.ChangePasswordAsync(user, changePasswordDto.CurrentPassword, changePasswordDto.NewPassword);
+
+            if (!changePasswordResult.Succeeded)
+            {
+                return BadRequest("Password change failed");
+            }
+
+            return Ok("Password changed successfully");
         }
     }
 }
