@@ -3,7 +3,6 @@ using SalesPlatform_Application.Services;
 using SalesPlatform_Domain.Entities;
 using SalesPlatform_Domain.Entities.Identity;
 using SalesPlatform_Infrastructure.Repositories;
-using System.Configuration;
 
 namespace SalesPlatform_Web.Extensions
 {
@@ -17,7 +16,10 @@ namespace SalesPlatform_Web.Extensions
             services.AddScoped<IItemService, ItemService>();
             services.AddScoped<IRepository<Item>, Repository<Item>>();
             services.AddScoped<IItemCategoryService, ItemCategoryService>();
-            services.AddScoped<IRepository<ItemCategory>, Repository<ItemCategory>>();  
+            services.AddScoped<IRepository<ItemCategory>, Repository<ItemCategory>>();
+            services.AddScoped<IPhotoService, PhotoService>();
+            services.AddScoped<IRepository<Photo>, Repository<Photo>>();
+            services.AddScoped<IPaginationService, PaginationService>();
 
             return services;
         }
