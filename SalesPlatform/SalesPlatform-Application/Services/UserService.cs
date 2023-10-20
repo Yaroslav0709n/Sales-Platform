@@ -4,6 +4,7 @@ using SalesPlatform_Application.Dtos.Auth;
 using SalesPlatform_Application.Dtos.User;
 using SalesPlatform_Application.Extensions;
 using SalesPlatform_Application.IServices;
+using SalesPlatform_Domain.Entities;
 using SalesPlatform_Domain.Entities.Identity;
 using SalesPlatform_Infrastructure.Repositories;
 
@@ -28,6 +29,8 @@ namespace SalesPlatform_Application.Services
         {
             var user = await _userRepository.GetByIdAsync(userId);
 
+            user.ThrowIfNull(nameof(user));
+
             return _mapper.Map<UserDto>(user);
         }
         public async Task<UserDto> GetCurrentUser()
@@ -35,6 +38,8 @@ namespace SalesPlatform_Application.Services
             var userId = _contextAccessor.HttpContext!.User.GetCurrentUserId().ToString();
 
             var user = await _userRepository.GetByIdAsync(userId);
+
+            user.ThrowIfNull(nameof(user));
 
             return _mapper.Map<UserDto>(user);
         }
@@ -44,6 +49,8 @@ namespace SalesPlatform_Application.Services
             var userId = _contextAccessor.HttpContext!.User.GetCurrentUserId().ToString();
 
             var userExist = await _userRepository.GetByIdAsync(userId);
+
+            userExist.ThrowIfNull(nameof(userExist));
 
             userExist.FirstName = updateUser.FirstName;
             userExist.LastName = updateUser.LastName;

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SalesPlatform_Application.Dtos.Item;
 using SalesPlatform_Application.Dtos.ItemCategory;
+using SalesPlatform_Application.Extensions;
 using SalesPlatform_Application.IServices;
 using SalesPlatform_Domain.Entities;
 using SalesPlatform_Infrastructure.Repositories;
@@ -23,17 +24,12 @@ namespace SalesPlatform_Application.Services
             _mapper = mapper;
         }
 
-        public async Task<ItemCategoryDto> CreateItemCategoryAsync(ItemCategoryDto itemCategoryDto)
-        {
-            var category = _mapper.Map<ItemCategory>(itemCategoryDto);
-            await _itemCategoryRepository.AddAsync(category);
-            await _itemCategoryRepository.SaveChangesAsync();
-            return _mapper.Map<ItemCategoryDto>(category);
-        }
-
         public async Task<IEnumerable<ItemCategoryDto>> GetAllItemCategoriesAsync()
         {
             var categories = await _itemCategoryRepository.GetAllAsync();
+
+            categories.ThrowIfNull(nameof(categories));
+
             return _mapper.Map<IEnumerable<ItemCategoryDto>>(categories);
         }
 
@@ -43,7 +39,17 @@ namespace SalesPlatform_Application.Services
                                        .Where(item => item.ItemCategoryId == categoryId)
                                        .ToListAsync();
 
+            items.ThrowIfNull(nameof(items));
+
             return _mapper.Map<IEnumerable<ItemDto>>(items);
+        }
+
+        public async Task<ItemCategoryDto> CreateItemCategoryAsync(ItemCategoryDto itemCategoryDto)
+        {
+            var category = _mapper.Map<ItemCategory>(itemCategoryDto);
+            await _itemCategoryRepository.AddAsync(category);
+            await _itemCategoryRepository.SaveChangesAsync();
+            return _mapper.Map<ItemCategoryDto>(category);
         }
     }
 }
