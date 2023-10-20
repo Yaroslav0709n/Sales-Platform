@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SalesPlatform_Application.Dtos;
 using SalesPlatform_Application.Dtos.Item;
 using SalesPlatform_Application.IServices;
 
@@ -17,9 +18,9 @@ namespace SalesPlatform_Web.Controllers
         }
 
         [HttpGet, Authorize]
-        public async Task<ActionResult> GetAllItems()
+        public async Task<ActionResult> GetAllItems([FromQuery] PaginationDto? paginationDto)
         {
-            var items = await _itemService.GetAllItemsAsync();
+            var items = await _itemService.GetAllItemsAsync(paginationDto);
             
             return Ok(items);
         }
@@ -33,19 +34,51 @@ namespace SalesPlatform_Web.Controllers
         }
 
         [HttpGet("userId"), Authorize]        
-        public async Task<ActionResult> GetItemByUserId(string userId)
+        public async Task<ActionResult> GetItemByUserId(string userId, [FromQuery] PaginationDto? paginationDto)
         {
-            var item = await _itemService.GetItemByUserIdAsync(userId);
+            var item = await _itemService.GetItemsByUserIdAsync(userId, paginationDto);
 
             return Ok(item);
         }
 
-        [HttpPost, Authorize]
+        [HttpPost("categoryId"), Authorize]
         public async Task<ActionResult> CreateItem(ItemDto itemDto, int categoryId)
         {
-            var item = await _itemService.CreateItemAsync(itemDto, categoryId);
+            var isItem = await _itemService.CreateItemAsync(itemDto, categoryId);
 
-            return Ok(true);
+            return Ok(isItem);
+        }
+
+        [HttpPut, Authorize]
+        public async Task<ActionResult> UpdateItem(UpdateItemDto updateItemDto)
+        {
+            var item = await _itemService.UpdateItemAsync(updateItemDto);
+
+            return Ok(item);
+        }
+
+        [HttpDelete, Authorize]
+        public async Task<ActionResult> DeleteItem(int id)
+        {
+            var isTrue = await _itemService.DeleteItemAsync(id);
+
+            return Ok(isTrue);
+        }
+
+        [HttpPut("increase"), Authorize]
+        public async Task<ActionResult> IncreaseItemFavourites(int itemId)
+        {
+            var isTrue = await _itemService.IncreaseItemFavouritesAsync(itemId);
+
+            return Ok(isTrue);
+        }
+
+        [HttpPut("decrease"), Authorize]
+        public async Task<ActionResult> DecreaseItemFavourites(int itemId)
+        {
+            var isTrue = await _itemService.DecreaseItemFavouritesAsync(itemId);
+
+            return Ok(isTrue);
         }
     }
 }

@@ -85,3 +85,4 @@ D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Web\bin\Debug\net7.0\runtimes\w
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Web\bin\Debug\net7.0\AutoMapper.dll
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Web\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Web\bin\Debug\net7.0\FluentAssertions.dll
+D:\vs2\SalesPlatform\SalesPlatform\SalesPlatform-Web\bin\Debug\net7.0\FluentValidation.dll
