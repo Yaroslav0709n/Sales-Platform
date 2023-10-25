@@ -36,6 +36,19 @@ namespace SalesPlatform_Application.Services
             return _mapper.Map<IEnumerable<ItemDto>>(_paginationService.GetItemsByPagination(items, paginationDto));
         }
 
+        public async Task<IEnumerable<ItemDto>> GetCurrentUserItemsAsync(PaginationDto? paginationDto)
+        {
+            var userId = _contextAccessor.HttpContext!.User.GetCurrentUserId().ToString();
+
+            var items = await _itemRepository.Query()
+                                             .Where(x => x.ApplicationUserId == userId)
+                                             .ToListAsync();
+
+            items.ThrowIfNull(nameof(items));
+
+            return _mapper.Map<IEnumerable<ItemDto>>(items);
+        }
+
         public async Task<ItemDto> GetItemByIdAsync(int itemId)
         {
             var item = await _itemRepository.GetByIdAsync(itemId);
