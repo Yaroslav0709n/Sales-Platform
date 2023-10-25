@@ -25,6 +25,15 @@ namespace SalesPlatform_Web.Controllers
             return Ok(items);
         }
 
+        [HttpGet("currentUser"), Authorize]
+        public async Task<ActionResult> GetCurrentUserItems([FromQuery] PaginationDto? paginationDto)
+        {
+            var items = await _itemService.GetCurrentUserItemsAsync(paginationDto);
+
+            return Ok(items);
+        }
+
+
         [HttpGet("itemId"), Authorize]
         public async Task<ActionResult> GetItemById(int itemId)
         {
@@ -44,9 +53,9 @@ namespace SalesPlatform_Web.Controllers
         [HttpPost("categoryId"), Authorize]
         public async Task<ActionResult> CreateItem(ItemDto itemDto, int categoryId)
         {
-            var isItem = await _itemService.CreateItemAsync(itemDto, categoryId);
+            var isCreated = await _itemService.CreateItemAsync(itemDto, categoryId);
 
-            return Ok(isItem);
+            return Ok(isCreated);
         }
 
         [HttpPut, Authorize]

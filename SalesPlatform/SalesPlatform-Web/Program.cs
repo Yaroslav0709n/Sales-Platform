@@ -5,6 +5,7 @@ using SalesPlatform_Application.Mappings;
 using Microsoft.Extensions.Configuration;
 using SalesPlatform_Application.IServices;
 using SalesPlatform_Application.Services;
+using SalesPlatform_Application.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ builder.Services.AddAutoMapper(typeof(UserMapper).Assembly);
 builder.Services.AddCorsService();
 builder.Services.AddSwaggerGenService();
 builder.Services.AddIdentityService();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -39,5 +41,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<ChatHub>("/chat");
 
 app.Run();

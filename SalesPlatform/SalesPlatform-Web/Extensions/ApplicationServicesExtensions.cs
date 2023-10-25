@@ -1,6 +1,7 @@
 ﻿using SalesPlatform_Application.IServices;
 using SalesPlatform_Application.Services;
 using SalesPlatform_Domain.Entities;
+using SalesPlatform_Domain.Entities.Chats;
 using SalesPlatform_Domain.Entities.Identity;
 using SalesPlatform_Infrastructure.Repositories;
 
@@ -20,6 +21,10 @@ namespace SalesPlatform_Web.Extensions
             services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<IRepository<Photo>, Repository<Photo>>();
             services.AddScoped<IPaginationService, PaginationService>();
+            services.AddScoped<IChatService, ChatService>();
+            services.AddScoped<IRepository<Chat>, Repository<Chat>>();
+            services.AddScoped<IRepository<UserChat>, Repository<UserChat>>();
+            services.AddScoped<IRepository<Message>, Repository<Message>>();
 
             return services;
         }
