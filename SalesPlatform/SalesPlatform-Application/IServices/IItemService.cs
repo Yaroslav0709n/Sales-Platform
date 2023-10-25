@@ -6,6 +6,7 @@ namespace SalesPlatform_Application.IServices
     public interface IItemService
     {
         Task<IEnumerable<ItemDto>> GetAllItemsAsync(PaginationDto? paginationDto);
+        Task<IEnumerable<ItemDto>> GetCurrentUserItemsAsync(PaginationDto? paginationDto);
         Task<ItemDto> GetItemByIdAsync(int itemId);
         Task<IEnumerable<ItemDto>> GetItemsByUserIdAsync(string userId, PaginationDto? paginationDto);
         Task<ItemDto> CreateItemAsync(ItemDto itemDto, int categoryId);
