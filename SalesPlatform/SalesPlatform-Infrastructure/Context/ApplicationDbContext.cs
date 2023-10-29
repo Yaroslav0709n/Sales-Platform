@@ -18,5 +18,6 @@ namespace SalesPlatform_Infrastructure.Context
         public DbSet<UserChat> UserChats { get; set; }
         public DbSet<Chat> Chats { get; set; }
         public DbSet<Message> Messages { get; set; }
+
     }
 }
