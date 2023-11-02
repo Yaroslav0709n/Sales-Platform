@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../UserContext';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	Headers,
+  Navigation,
+  Title,
+  UserInfo,
+  UserName,
+  Button,
 
 } from './Header.elements';
-import axios from 'axios';
 
 const Header: React.FC = () => {
   const { userId } = useContext(UserContext);
@@ -35,11 +39,26 @@ const Header: React.FC = () => {
   
   return (
     <Headers>
-        <h1>Sales Platform</h1>
-        <div>{`${firstName} ${lastName}`}</div>
-        <button onClick={handleLogout}>
+        <Title>Sales Platform</Title>
+        <Navigation>
+          <ul>
+            <li>
+              <Link to="/items">Items</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+          </ul>
+        </Navigation>
+        <UserInfo>
+          <UserName>{`${firstName} ${lastName}`}</UserName>
+          <Button onClick={handleLogout}>
             Logout
-        </button>
+          </Button>
+        </UserInfo>
     </Headers>
   );
 };

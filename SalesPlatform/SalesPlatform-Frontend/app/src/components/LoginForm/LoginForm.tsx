@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
 
 
     return (
-      <div style={{background: "#483D8B", height: "100vh"}}>
+      <div style={{background: "#3CB371", height: "100vh"}}>
         <Form>
           <h2>Log In</h2>
           <Label>
