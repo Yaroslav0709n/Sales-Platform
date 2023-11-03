@@ -1,0 +1,38 @@
+.register{
+    height: 100vh;
+    background: #3CB371; 
+}
+
+.register__form{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+}
+
+.register__form h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register__form-control label{
+    margin-bottom: "10px";
+	font-size: 16px;
+    display: block;
+}
+
+.register__form-button{
+    background: #007bff;
+}
+
+.register__form-button:hover{
+    background: #0055af;
+}
+
+.register__form-link{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
