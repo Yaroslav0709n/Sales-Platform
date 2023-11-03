@@ -1,11 +1,14 @@
 import React from 'react';
-import ItemsList from '../../components/ItemsList/ItemsList'
+import Items from '../../components/Items/ItemsList'
+import Container from '../../shared/Containers/Container'
+import Title from '../../shared/Title/Title';
 
 const ItemsPage: React.FC = () => {
   return (
-  <>
-    <ItemsList/>
-  </>
+  <Container>
+    <Title>Advertisement</Title>
+    <Items/>
+  </Container> 
   );
 };
 
