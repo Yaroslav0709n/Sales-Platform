@@ -1,15 +1,10 @@
 import React, { useContext, useState } from 'react';
+import axios from 'axios';
+import styles from './LoginForm.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
-import axios from 'axios';
-import {
-	  Label,
-    Form,
-    Input,
-    Button,
-    LinkContainer
-} from './LoginForm.elements';
-
+import EnterInput from '../../shared/Inputs/EnterInput/EnterInput'
+import SubmitButton from '../../shared/Buttons/SubmitButton'
 
 const LoginForm: React.FC = () => {
     const navigate = useNavigate(); 
@@ -42,32 +37,36 @@ const LoginForm: React.FC = () => {
 
 
     return (
-      <div style={{background: "#3CB371", height: "100vh"}}>
-        <Form>
+      <div className={styles.login}>
+        <form className={styles.login__form}>
           <h2>Log In</h2>
-          <Label>
-              Email
-          </Label>
-          <Input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-          />
-          <Label>
-              Password
-          </Label>
-          <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button onClick={(e:any) => handleLogin(e)}>Log In</Button>
-          <LinkContainer>
-              <Link to="/registration">I don't have an account</Link>
-          </LinkContainer>
-        </Form>
+          <div className={styles["login__form-control"]}>
+            <label>
+                Email
+            </label>
+            <EnterInput
+                value={email}
+                type="text"
+                onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles["login__form-control"]}>
+            <label>
+                Password
+            </label>
+            <EnterInput 
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <SubmitButton className={styles["login__form-button"]} type='submit' onClick={(e:any) => handleLogin(e)}>Log In</SubmitButton>
+          <div className={styles["login__form-link"]}>
+            <Link to="/registration">I don't have an account</Link>
+          </div>
+        </form>
       </div>
     );
   };
   
-  export default LoginForm;
+export default LoginForm;

@@ -1,27 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosRequestConfig } from 'axios';
-import {
-  Div,
-  Item,
-  ItemList,
-  DivState
-} from './ItemsList.elements';
-
-
-interface ItemDto {
-    $id: string,
-    id: string,
-    name: string;
-    description: string;
-    price: number;
-    time: string;
-    city: string,
-    state: string
-  }
-
+import styles from './ItemsList.module.css'
+import {Item} from '../../interfaces/Item/Item'
+import ItemCard from '../../shared/Cards/ItemCard'
 
 const ItemsList: React.FC = () => {
-  const [items, setItems] = useState<ItemDto[]>([]);
+  const [items, setItems] = useState<Item[]>([]);
   const [pageNumber, setPageNumber] = useState(2);
   const [count, setCount] = useState(10); 
 
@@ -43,21 +27,15 @@ const ItemsList: React.FC = () => {
       });
   }, []);
 
-  return (
-    <Div>
-      <h2>Advertisements</h2>
-      <ItemList>
+  return ( 
+    <div>
         {items?.map((item) => (
-          <Item key={item.id}>
-            <p>{item.name}</p>
-            <DivState >
-              <p>{item.state}</p>
-            </DivState>
-            <p>{item.city} - {item.time.split("T")[0]}</p>
-          </Item>
+          <ItemCard
+            key={item.id}
+            item={item}
+          />
         ))}
-      </ItemList>
-    </Div>
+    </div>
   );
 };
 

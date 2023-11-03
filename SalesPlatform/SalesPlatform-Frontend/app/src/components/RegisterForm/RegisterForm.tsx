@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {
-	Label,
-    Form,
-    Input,
-    Button,
-    LinkContainer
-} from './RegisterForm.element';
+import styles from './RegisterForm.module.css';
+import EnterInput from '../../shared/Inputs/EnterInput/EnterInput'
+import SubmitButton from '../../shared/Buttons/SubmitButton'
 
-
+ 
 const RegisterForm: React.FC = () => {
     const navigate = useNavigate(); 
     const [firstName, setFirstName] = useState('');
@@ -40,62 +36,74 @@ const RegisterForm: React.FC = () => {
     };
 
     return (
-        <div style={{background: "#483D8B", height: "100vh"}}>
-            <Form>
+        <div className={styles.register}>
+            <form className={styles.register__form}>
                 <h2>Sign Up</h2>
-                <Label>
-                    First Name
-                </Label>
-                <Input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                />
-                <Label>
-                    Last Name
-                </Label>
-                <Input
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                />
-                <Label>
-                    Email
-                </Label>
-                <Input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <Label>
-                    Phone
-                </Label>
-                <Input
-                    type="text"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                />
-                <Label>
-                    City
-                </Label>
-                <Input
-                    type="text"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                />
-                <Label>
-                    Password
-                </Label>
-                <Input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <Button onClick={(e:any) => handleRegister(e)}>Sign Up</Button>
-                <LinkContainer>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        First Name
+                    </label>
+                    <EnterInput
+                        type="text"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+                </div>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        Last Name
+                    </label>
+                    <EnterInput
+                        type="text"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                    />
+                </div>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        Email
+                    </label>
+                    <EnterInput
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        Phone
+                    </label>
+                    <EnterInput
+                        type="text"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                    />
+                </div>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        City
+                    </label>
+                    <EnterInput
+                        type="text"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                    />
+                </div>
+                <div className={styles["register__form-control"]}>
+                    <label>
+                        Password
+                    </label>
+                    <EnterInput
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <SubmitButton className={styles["register__form-button"]} type='submit' onClick={(e:any) => handleRegister(e)}>Sign Up</SubmitButton>
+                <div className={styles["register__form-link"]}>
                     <Link to="/login">I already have an account</Link>
-                </LinkContainer>
-            </Form>
+                </div>
+            </form>
         </div>
     );
   };
