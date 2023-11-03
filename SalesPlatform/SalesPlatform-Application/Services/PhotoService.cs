@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using SalesPlatform_Application.Dtos;
 using SalesPlatform_Application.Extensions;
 using SalesPlatform_Application.IServices;
 using SalesPlatform_Domain.Entities;
@@ -11,15 +13,17 @@ namespace SalesPlatform_Application.Services
     {
         private readonly IRepository<Photo> _photoRepository;
         private readonly IRepository<Item> _itemRepository;
-
+        private readonly IMapper _mapper;
         public PhotoService(IRepository<Photo> photoRepository,
-                            IRepository<Item> itemRepository)
+                            IRepository<Item> itemRepository,
+                            IMapper mapper)
         {
             _photoRepository = photoRepository;
             _itemRepository = itemRepository;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Photo>> GetPhotosByItemIdAsync(int itemId)
+        public async Task<IEnumerable<PhotoDto>> GetPhotosByItemIdAsync(int itemId)
         {
             var photos = await _photoRepository.Query()
                                                .Include(photo => photo.Item)
@@ -28,7 +32,7 @@ namespace SalesPlatform_Application.Services
 
             photos.ThrowIfNull(nameof(photos));
 
-            return photos;      
+            return _mapper.Map<IEnumerable<PhotoDto>>(photos);      
         }
 
         public async Task<IEnumerable<Photo>> UploadPhotosAsync(int itemId, List<IFormFile> files)
