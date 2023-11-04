@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import './assets/global.css'
-import Header from './layouts/Header/Header'
-import LoginPage from './pages/Login/LoginPage'
-import RegisterPage from './pages/Register/RegisterPage'
-import ItemsPage from './pages/Items/ItemsPage'
+import './assets/global.css';
+import Header from './layouts/Header/Header';
+import LoginPage from './pages/Login/LoginPage';
+import RegisterPage from './pages/Register/RegisterPage';
+import ItemsPage from './pages/Items/ItemsPage';
+import CreateItemPage from './pages/CreateItem/CreateItemPage' 
 import { UserProvider } from './UserContext';
 
 const App: React.FC = () => {
@@ -28,6 +29,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registration" element={<RegisterPage />} />
           <Route path="/items" element={<ItemsPage />} />
+          <Route path="/createitem" element={<CreateItemPage />}/>
         </Routes>
       </div>
     </UserProvider>
