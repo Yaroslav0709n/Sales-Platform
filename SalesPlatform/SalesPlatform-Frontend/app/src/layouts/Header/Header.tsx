@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../UserContext';
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './Header.module.css'
 import {
 	Headers,
   Navigation,
@@ -15,8 +16,12 @@ const Header: React.FC = () => {
   const { userId } = useContext(UserContext);
   const [firstName, setFirstName] = useState(localStorage.getItem('firstName') || '');
   const [lastName, setLastName] = useState(localStorage.getItem('lastName') || '');
-  
   const navigate = useNavigate();
+  const [showSubMenu, setShowSubMenu] = useState(false);
+
+  const toggleSubMenu = () => {
+    setShowSubMenu(!showSubMenu);
+  };
 
   useEffect(() => {
     if (userId) {
@@ -42,9 +47,19 @@ const Header: React.FC = () => {
         <Title>Sales Platform</Title>
         <Navigation>
           <ul>
-            <li>
-              <Link to="/items">Items</Link>
-            </li>
+          <li onMouseEnter={toggleSubMenu} onMouseLeave={toggleSubMenu}>
+            <Link to="/items">Advertisements</Link>
+            {showSubMenu && (
+              <ul className={styles.submenu}>
+                <li className={styles.submenu__list}>
+                  <Link to="/useritems">My Advertisements</Link>
+                </li>
+                <li className={styles.submenu__list}>
+                  <Link to="/createitem">Create Advertisements</Link>
+                </li>
+              </ul>
+            )}
+          </li>
             <li>
               <Link to="/profile">Profile</Link>
             </li>
