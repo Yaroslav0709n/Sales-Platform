@@ -8,6 +8,7 @@ export const Headers = styled.header`
     background-color: #2E8B57;
     font-weight: bold;
     color: white;
+    height: 110px;
 `;
 
 export const Title = styled.h1`

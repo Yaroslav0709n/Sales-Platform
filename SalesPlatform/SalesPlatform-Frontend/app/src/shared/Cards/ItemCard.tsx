@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ItemCard.module.css'
 import {Item} from '../../interfaces/Item/Item'
-import Image from '../Images/Image'
+import ItemImage from '../Images/ItemImage'
 
 interface CardProps{
     item:Item;
@@ -10,9 +10,9 @@ interface CardProps{
 const ItemCard: React.FC<CardProps> = ({item}) => {
   return ( 
     <div className={styles.item__list}>
-      <Image
+      <ItemImage
         itemId={item.id}
-      />
+      /> 
       <div className={styles["item__list-info"]}>
         <p className={styles["item__list-name"]}>{item.name}</p>
         <p className={styles["item__list-state"]}>{item.state}</p>

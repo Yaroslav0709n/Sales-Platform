@@ -5,7 +5,6 @@ import styles from './RegisterForm.module.css';
 import EnterInput from '../../shared/Inputs/EnterInput/EnterInput'
 import SubmitButton from '../../shared/Buttons/SubmitButton'
 
- 
 const RegisterForm: React.FC = () => {
     const navigate = useNavigate(); 
     const [firstName, setFirstName] = useState('');
@@ -22,7 +21,7 @@ const RegisterForm: React.FC = () => {
             const response = await axios.post('https://localhost:44301/api/Auth/register',  {
                 firstName,
                 lastName,
-                email,
+                email, 
                 phoneNumber,
                 city,
                 password,

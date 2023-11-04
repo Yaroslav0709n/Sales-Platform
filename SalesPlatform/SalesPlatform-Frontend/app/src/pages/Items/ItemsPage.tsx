@@ -1,5 +1,5 @@
 import React from 'react';
-import Items from '../../components/Items/ItemsList'
+import Items from '../../components/Items/ItemsList/ItemsList'
 import Container from '../../shared/Containers/Container'
 import Title from '../../shared/Title/Title';
 
@@ -8,7 +8,7 @@ const ItemsPage: React.FC = () => {
   <Container>
     <Title>Advertisement</Title>
     <Items/>
-  </Container> 
+  </Container>  
   );
 };
 

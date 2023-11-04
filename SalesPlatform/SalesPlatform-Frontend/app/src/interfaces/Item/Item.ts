@@ -8,3 +8,11 @@ export interface Item {
     city: string,
     state: string
 }
+
+export interface ItemDto {
+    name: string;
+    description: string;
+    price: any;
+    city: string,
+    state: string
+}
