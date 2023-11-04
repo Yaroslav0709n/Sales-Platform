@@ -1,0 +1,19 @@
+.submenu {
+    position: absolute;
+    padding: 10px;
+    z-index: 1;
+    width: 200px;
+    transition: opacity 0.3s; 
+    opacity: 0; 
+}
+
+li:hover .submenu {
+    display: block;
+    opacity: 1; 
+}
+
+.submenu__list{
+    font-size: 13px;
+    margin-top: 10px;
+
+}
