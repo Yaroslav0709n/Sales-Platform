@@ -30,7 +30,7 @@ const ItemsList: React.FC = () => {
   return ( 
     <div>
         {items?.map((item) => (
-          <ItemCard
+          <ItemCard 
             key={item.id}
             item={item}
           />

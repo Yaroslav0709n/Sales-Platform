@@ -1,0 +1,57 @@
+.create__item-name{
+    background-color: #E5E7E9;
+    height: 100px;
+    padding: 25px 0 0 35px;
+    border-radius: 10px;
+}
+
+.create__item-name label{
+    font-weight: bold;
+}
+
+.create__item-description{
+    background-color: #E5E7E9;
+    height: 370px;
+    padding: 25px 0 0 35px;
+    margin: 30px 0 0 0;
+    border-radius: 10px;
+}
+
+.create__item-description label{
+    font-weight: bold;
+}
+
+.create__item-description textarea {
+    resize: none; 
+    width: 95%; 
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.create__item-price{
+    background-color: #E5E7E9  ;
+    height: 100px;
+    padding: 25px 0 0 35px;
+    margin: 30px 0 0 0;
+    border-radius: 10px;
+}
+
+.create__item-price label{
+    font-weight: bold;
+}
+
+.create__item-city{
+    background-color: #E5E7E9  ;
+    height: 100px;
+    padding: 25px 0 0 35px;
+    margin: 30px 0 0 0;
+    border-radius: 10px;
+}
+
+.create__item-city label{
+    font-weight: bold;
+}
+

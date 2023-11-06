@@ -23,6 +23,22 @@ const ItemsList: React.FC = () => {
     Authorization: `Bearer ${token}`, 
   };
 
+  const handleCreateItem = async () => {
+    try {
+      const response = await axios.post(
+        `https://localhost:44301/api/ItemСontroller/categoryId?categoryId=3`,
+        newItem,
+        {
+          headers,
+        }
+      );
+      console.log(response.data);
+      navigate('/items');
+    } catch (error) {
+      console.error('Error: ', error);
+    }
+  };
+
   useEffect(() => {
         axios.get(`https://localhost:44301/api/ItemCategory`, {
             headers
@@ -40,26 +56,11 @@ const ItemsList: React.FC = () => {
     setCategory(event.target.value); 
   }
 
-  const handleCreateItem = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-        try {
-            const response = await axios.post(`https://localhost:44301/api/ItemController/${category}`, newItem,  {
-                headers
-            });
-
-            console.log('Success', response.data);
-            navigate('/items')
-    } catch (error) {
-        console.error('Error registration', error);
-    }
-  };
-
   return ( 
     <div>
         <div className={styles["create__item-name"]}>
             <label>Enter a name</label>
-            <input 
+            <EnterInput 
                 type="text"
                 value={newItem.name} 
                 onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
@@ -78,15 +79,14 @@ const ItemsList: React.FC = () => {
         </div>
         <div className={styles["create__item-description"]}>
             <label>Enter a description</label>
-            <input 
-                type="text"
+            <textarea 
                 value={newItem.description} 
                 onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
             />
         </div>
         <div className={styles["create__item-price"]}>
             <label>Enter a price</label>
-            <input 
+            <EnterInput 
                 type="text"
                 value={newItem.price.toString()}
                 onChange={(e) => setNewItem({ ...newItem, price: parseFloat(e.target.value) })}             
@@ -94,7 +94,7 @@ const ItemsList: React.FC = () => {
         </div>
         <div className={styles["create__item-city"]}>
             <label>Enter a city</label>
-            <input 
+            <EnterInput 
                 type="text"
                 value={newItem.city} 
                 onChange={(e) => setNewItem({ ...newItem, city: e.target.value })}
@@ -102,13 +102,13 @@ const ItemsList: React.FC = () => {
         </div>
         <div className={styles["create__item-state"]}>
             <label>Choose the state</label>
-            <input 
+            <EnterInput 
                 type="text"
                 value={newItem.state} 
                 onChange={(e) => setNewItem({ ...newItem, state: e.target.value })}
             />
         </div>
-        <button className={styles["create__item-button"]} type='submit' onClick={(e:any) => handleCreateItem(e)}>Create</button>
+        <button className={styles["create__item-button"]} type='submit' onClick={() => handleCreateItem()}>Create</button>
     </div>
   );
 };
