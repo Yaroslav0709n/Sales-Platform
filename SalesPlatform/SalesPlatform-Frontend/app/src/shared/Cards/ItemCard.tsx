@@ -11,7 +11,7 @@ const ItemCard: React.FC<CardProps> = ({item}) => {
   return ( 
     <div className={styles.item__list}>
       <ItemImage
-        itemId={item.id}
+        itemId={item.id} 
       /> 
       <div className={styles["item__list-info"]}>
         <p className={styles["item__list-name"]}>{item.name}</p>
