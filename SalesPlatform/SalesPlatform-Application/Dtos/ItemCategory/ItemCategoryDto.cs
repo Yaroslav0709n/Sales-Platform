@@ -8,6 +8,7 @@ namespace SalesPlatform_Application.Dtos.ItemCategory
 {
     public class ItemCategoryDto
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-    }
+    } 
 }

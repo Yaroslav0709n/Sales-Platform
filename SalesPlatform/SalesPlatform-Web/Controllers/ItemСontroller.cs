@@ -46,7 +46,7 @@ namespace SalesPlatform_Web.Controllers
         public async Task<ActionResult> GetItemByUserId(string userId, [FromQuery] PaginationDto? paginationDto)
         {
             var item = await _itemService.GetItemsByUserIdAsync(userId, paginationDto);
-
+             
             return Ok(item);
         }
 

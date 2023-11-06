@@ -8,7 +8,7 @@ namespace SalesPlatform_Web.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ItemCategoryController : ControllerBase
-    {
+    { 
         private readonly IItemCategoryService _itemCategoryService;
 
         public ItemCategoryController(IItemCategoryService itemCategoryService)
